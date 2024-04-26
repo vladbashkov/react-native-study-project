@@ -23,14 +23,6 @@ const Product = ({ product }) => {
 		setInCart(!isInCart);
 	};
 
-	// const product = {
-	// 	title: "New York Pizza",
-	// 	newPrice: "7.99$",
-	// 	oldPrice: "9.99$",
-	// 	description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium in magni ut quisquam sequi enim tempore voluptatum repudiandae itaque earum officia, aperiam, iure minus perferendis aspernatur iusto quam omnis aliquid",
-	// 	image: "https://www.foodandwine.com/thmb/rdvaTR7cfzwgJp6-3Li_p6arVnA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/new-york-pizza-guide-FT-BLOG042-82b23ec2d6c04844a58c6fcedb4ddd43.jpg",
-	// };
-
 	return (
 		<View style={styles.container}>
 			<View style={styles.ImgContainer}>

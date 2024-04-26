@@ -1,7 +1,7 @@
 import { View } from "react-native";
 
 import Product from "../../components/product/product";
-import products from "./products";
+import products from "../../mock/products";
 
 const Home = () => {
 	return (
