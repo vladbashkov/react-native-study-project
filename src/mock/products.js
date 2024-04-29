@@ -7,6 +7,7 @@ const products = [
 	},
 	{
 		title: "Pepperoni Pizza",
+		new: true,
 		newPrice: "$11.99",
 		oldPrice: "$13.99",
 		description: "Pizza with pepperoni and extra cheese.",
@@ -27,6 +28,7 @@ const products = [
 	},
 	{
 		title: "Pasta Carbonara",
+		new: true,
 		newPrice: "$12.49",
 		oldPrice: "$14.49",
 		description: "Classic pasta with cream, egg, bacon, and parmesan.",
@@ -35,6 +37,7 @@ const products = [
 	{
 		title: "Spaghetti Bolognese",
 		price: "$13.49",
+		new: true,
 		description: "Spaghetti with a rich Bolognese sauce.",
 		image: "https://www.foodandwine.com/thmb/rdvaTR7cfzwgJp6-3Li_p6arVnA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/new-york-pizza-guide-FT-BLOG042-82b23ec2d6c04844a58c6fcedb4ddd43.jpg",
 	},
@@ -46,6 +49,7 @@ const products = [
 	},
 	{
 		title: "Caesar Salad",
+		new: true,
 		newPrice: "$8.99",
 		oldPrice: "$10.99",
 		description: "Classic Caesar salad with romaine lettuce and croutons.",
@@ -53,6 +57,7 @@ const products = [
 	},
 	{
 		title: "Greek Salad",
+		new: true,
 		price: "$9.99",
 		description: "Salad with feta cheese, olives, and tomatoes.",
 		image: "https://www.foodandwine.com/thmb/rdvaTR7cfzwgJp6-3Li_p6arVnA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/new-york-pizza-guide-FT-BLOG042-82b23ec2d6c04844a58c6fcedb4ddd43.jpg",
@@ -72,6 +77,7 @@ const products = [
 	},
 	{
 		title: "Mozzarella Sticks",
+		new: true,
 		newPrice: "$6.99",
 		oldPrice: "$8.99",
 		description: "Fried mozzarella sticks with marinara sauce.",
@@ -85,12 +91,14 @@ const products = [
 	},
 	{
 		title: "French Fries",
+		new: true,
 		price: "$3.99",
 		description: "Crispy French fries with ketchup.",
 		image: "https://www.foodandwine.com/thmb/rdvaTR7cfzwgJp6-3Li_p6arVnA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/new-york-pizza-guide-FT-BLOG042-82b23ec2d6c04844a58c6fcedb4ddd43.jpg",
 	},
 	{
 		title: "Onion Rings",
+		new: true,
 		newPrice: "$5.49",
 		oldPrice: "$6.99",
 		description: "Fried onion rings with a crispy coating.",
@@ -117,6 +125,7 @@ const products = [
 	},
 	{
 		title: "Chocolate Chip Cookie",
+		new: true,
 		price: "$1.99",
 		description: "Fresh-baked cookie with chocolate chips.",
 		image: "https://www.foodandwine.com/thmb/rdvaTR7cfzwgJp6-3Li_p6arVnA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/new-york-pizza-guide-FT-BLOG042-82b23ec2d6c04844a58c6fcedb4ddd43.jpg",

@@ -26,6 +26,13 @@ const Product = ({ product }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.ImgContainer}>
+				{product.new ? (
+					<View style={styles.isNew}>
+						<Text style={styles.isNewText}>New</Text>
+					</View>
+				) : (
+					""
+				)}
 				<Image source={{ uri: product.image }} style={styles.productImage} />
 			</View>
 

@@ -52,6 +52,26 @@ const styles = StyleSheet.create({
 	},
 	ImgContainer: {
 		marginRight: 16,
+		position: "relative",
+	},
+	isNew: {
+		position: "absolute",
+		borderRadius: "9999px",
+		zIndex: "100",
+		right: -10,
+		top: -9,
+		width: 25,
+		height: 25,
+		backgroundColor: "#fff",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: 3,
+		borderWidth: 1,
+		borderColor: "#ffb568",
+	},
+	isNewText: {
+		fontSize: 8,
+		color: "red",
 	},
 	productImage: {
 		width: 80,
