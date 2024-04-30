@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { View, Text, TextInput, Pressable } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { CustomPressable } from "../../components/customPressable/customPressable";
 import { CustomModal } from "../../components/customModal/customModal";
 
 import styles from "./style";
 
-const AppBar = ({ onSearch }) => {
+const AppBar = ({ onSearch, onFilter, isFiltered }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isTextInputOpen, setIsTextInputOpen] = useState(false);
 	const [isFilterModalOpen, setIsFIlterModalOpen] = useState(false);
@@ -42,7 +43,7 @@ const AppBar = ({ onSearch }) => {
 				</CustomModal>
 
 				<CustomModal isVisible={isFilterModalOpen} styleVariant="Filter" onClose={toggleFilterModal}>
-					<Text>Filter</Text>
+					<BouncyCheckbox text="Filter" onPress={onFilter} isChecked={isFiltered ? true : false} />
 				</CustomModal>
 			</View>
 			<View style={styles.FilterContainer}>
