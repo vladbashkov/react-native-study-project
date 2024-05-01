@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { Text, View, Image, Pressable } from "react-native";
+
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 import styles from "./style";
-
-const truncateText = (text, length) => {
-	if (text.length > length) {
-		return `${text.substring(0, length)}...`;
-	}
-	return text;
-};
 
 const Product = ({ product }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -26,7 +20,7 @@ const Product = ({ product }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.ImgContainer}>
-				{product.new ? (
+				{product.isNew ? (
 					<View style={styles.isNew}>
 						<Text style={styles.isNewText}>New</Text>
 					</View>
@@ -48,7 +42,7 @@ const Product = ({ product }) => {
 						</>
 					)}
 				</View>
-				<Text style={styles.description}>{truncateText(product.description, 20)}</Text>
+				<Text style={styles.description}>{`${product.description.substring(0, 20)}...`}</Text>
 			</View>
 
 			<View style={styles.rightSection}>
