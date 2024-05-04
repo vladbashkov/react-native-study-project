@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 	AppBar: {
 		flexDirection: "column",
 		width: "100%",
-		paddingVertical: 10,
+		padding: 10,
 	},
 	SearchContainer: {
 		flexDirection: "row",
