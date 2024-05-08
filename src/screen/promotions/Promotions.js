@@ -42,25 +42,8 @@ const Promotions = () => {
 
 	const renderItem = ({ item }) => (
 		<Pressable onLongPress={handleLongPress} onPressOut={handleRelease} style={styles.slideWrapper}>
-			<View
-				style={{
-					width: innerWidth,
-					justifyContent: "center",
-					alignItems: "center",
-					borderWidth: 2,
-					borderColor: "orange",
-					borderRadius: 12,
-					padding: 10,
-				}}
-			>
-				<Image
-					source={{ uri: item.img }}
-					style={{
-						width: innerWidth,
-						height: 200,
-						objectFit: "contain",
-					}}
-				/>
+			<View style={[styles.slide, { width: innerWidth }]}>
+				<Image source={{ uri: item.img }} style={[styles.image, { width: innerWidth }]} />
 			</View>
 		</Pressable>
 	);

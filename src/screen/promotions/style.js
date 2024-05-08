@@ -1,7 +1,4 @@
-import { StyleSheet, useWindowDimensions } from "react-native";
-
-const { width } = useWindowDimensions;
-const innerWidth = width - 20;
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	container: {
@@ -16,14 +13,14 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	slide: {
-		width: innerWidth,
 		justifyContent: "center",
 		alignItems: "center",
 		borderWidth: 2,
 		borderColor: "orange",
+		borderRadius: 12,
+		padding: 10,
 	},
 	image: {
-		width: innerWidth,
 		height: 200,
 		objectFit: "contain",
 	},
