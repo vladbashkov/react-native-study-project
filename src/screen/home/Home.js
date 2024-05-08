@@ -39,15 +39,15 @@ const Home = () => {
 			if (itemsToShow < displayedProducts.length) {
 				setItemsToShow(itemsToShow + LOAD_INCREMENT);
 			}
-		}, 2000); // Timeout to see the refreshing
+		}, 3000); // Timeout to see the refreshing
 	};
 
 	const renderItem = ({ item }) => <Product product={item} />;
 
 	return (
-		<View>
+		<>
 			<AppBar
-				onSearch={setSearchText}
+				onSearch={setSearchText} //
 				onFilter={toggleNewFiltered}
 				isFiltered={showOnlyNew}
 			/>
@@ -59,7 +59,6 @@ const Home = () => {
 			) : (
 				<FlatList
 					data={displayedProducts.slice(0, itemsToShow)} // Just some text for visual
-					// style={styles.FlatList}
 					keyExtractor={() => uuid.v4()}
 					refreshing={refreshing}
 					onEndReached={handleLoadMore}
@@ -68,7 +67,7 @@ const Home = () => {
 					renderItem={renderItem}
 				/>
 			)}
-		</View>
+		</>
 	);
 };
 
