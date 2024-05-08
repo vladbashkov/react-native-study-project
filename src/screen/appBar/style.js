@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
 		width: "100%",
 		marginBottom: 10,
 	},
+	FilterContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		paddingVertical: 20,
+	},
 	TextInput: {
 		height: 36,
 		flex: 1,
