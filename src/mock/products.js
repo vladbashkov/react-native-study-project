@@ -1,4 +1,4 @@
-const products = [
+const products = [ 
 	{
 		title: "Margherita Pizza",
 		price: "$10.99",

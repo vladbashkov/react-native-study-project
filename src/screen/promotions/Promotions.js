@@ -4,7 +4,7 @@ import { View, Image, FlatList, useWindowDimensions, Pressable } from "react-nat
 import promotionImages from "../../mock/promotionImages";
 import styles from "./style";
 
-const Promotions = () => {
+const Promotions = ({ backgroundColor, textColor }) => {
 	const { width } = useWindowDimensions();
 	const innerWidth = width - 20;
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,26 +49,28 @@ const Promotions = () => {
 	);
 
 	return (
-		<View style={styles.container}>
-			<FlatList
-				data={promotionImages} // Just for format
-				horizontal
-				pagingEnabled
-				showsHorizontalScrollIndicator={false}
-				keyExtractor={(item, index) => `slide-${index}`}
-				ref={flatListRef}
-				onMomentumScrollEnd={handleScrollEnd}
-				renderItem={renderItem}
-				style={styles.FlatList}
-			/>
+		<View style={{ backgroundColor, color: textColor, flex: 1 }}>
+			<View style={styles.container}>
+				<FlatList
+					data={promotionImages} //
+					horizontal
+					pagingEnabled
+					showsHorizontalScrollIndicator={false}
+					keyExtractor={(item, index) => `slide-${index}`}
+					ref={flatListRef}
+					onMomentumScrollEnd={handleScrollEnd}
+					renderItem={renderItem}
+					style={styles.FlatList}
+				/>
 
-			<View style={styles.pagination}>
-				{promotionImages.map((_, index) => (
-					<View
-						key={index} // Just for format
-						style={[styles.dot, currentIndex === index ? styles.activeDot : null]}
-					/>
-				))}
+				<View style={styles.pagination}>
+					{promotionImages.map((_, index) => (
+						<View
+							key={index} //
+							style={[styles.dot, currentIndex === index ? styles.activeDot : null]}
+						/>
+					))}
+				</View>
 			</View>
 		</View>
 	);

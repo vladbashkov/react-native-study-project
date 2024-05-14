@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: "center",
 		alignItems: "center",
-		height: 300,
+		paddingTop: 10,
 	},
 	FlatList: {
 		marginBottom: 20,
