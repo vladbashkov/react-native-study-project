@@ -1,56 +1,73 @@
 import { useState } from "react";
-import { View, Text, TextInput, Pressable } from "react-native";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
-
+import { View, Text, Alert, useColorScheme } from "react-native";
 import { CustomPressable } from "../../components/customPressable/customPressable";
-import { CustomModal } from "../../components/customModal/customModal";
 
+import { SearchSection, ThemeModal, FilterModal, FavoriteModal } from "./components/AppBarComponents";
 import styles from "./style";
 
-const AppBar = ({ onSearch, onFilter, isFiltered }) => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+const AppBar = ({ onSearch, onFilter, isFiltered, textColor, onAutoThemeChange, onDarkThemeChange, backgroundColor, currentTheme }) => {
 	const [isTextInputOpen, setIsTextInputOpen] = useState(false);
-	const [isFilterModalOpen, setIsFIlterModalOpen] = useState(false);
+	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+	const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
+	const [isAutoThemeEnabled, setIsAutoThemeEnabled] = useState(true);
+	const [isDarkTheme, setIsDarkTheme] = useState(false);
+	const [isFavoriteModalOpen, setIsFavoriteModalOpen] = useState(false);
 
-	const toggleModal = () => {
-		setIsModalOpen(!isModalOpen);
+	const toggleTextInput = () => setIsTextInputOpen(!isTextInputOpen);
+	const toggleFilterModal = () => setIsFilterModalOpen(!isFilterModalOpen);
+	const toggleThemeModal = () => setIsThemeModalOpen(!isThemeModalOpen);
+	const toggleFavoriteModal = () => setIsFavoriteModalOpen(!isFavoriteModalOpen);
+
+	const toggleAutoThemeSwitch = () => {
+		setIsAutoThemeEnabled(!isAutoThemeEnabled);
+		setIsDarkTheme(false);
+		onAutoThemeChange();
+	};
+	const toggleDarkTheme = () => {
+		setIsDarkTheme(!isDarkTheme);
+		onDarkThemeChange();
 	};
 
-	const toggleTextInput = () => {
-		setIsTextInputOpen(!isTextInputOpen);
-	};
-
-	const toggleFilterModal = () => {
-		setIsFIlterModalOpen(!isFilterModalOpen);
+	const showAlert = () => {
+		Alert.alert("Shopping cart", "Sorry, but there is no shopping cart yet", [{ text: "OK" }, { text: "Return" }]);
 	};
 
 	return (
 		<View style={styles.AppBar}>
-			<View style={styles.SearchContainer}>
-				{isTextInputOpen && <TextInput placeholder="Search product..." onChangeText={onSearch} style={styles.TextInput} />}
+			<SearchSection
+				isTextInputOpen={isTextInputOpen} //
+				onToggleFavoriteModal={toggleFavoriteModal}
+				toggleTextInput={toggleTextInput}
+				onSearch={onSearch}
+				showAlert={showAlert}
+				textColor={textColor}
+				currentTheme={currentTheme}
+				onToggleFilterModal={toggleFilterModal}
+				onToggleThemeModal={toggleThemeModal}
+			/>
 
-				<CustomPressable style={styles.favorite} onPress={toggleModal}>
-					<AntDesign name={"heart"} size={24} color={"red"} />
-				</CustomPressable>
+			<FavoriteModal
+				isVisible={isFavoriteModalOpen} //
+				onClose={toggleFavoriteModal}
+			/>
 
-				<CustomPressable style={styles.input} onPress={toggleTextInput}>
-					<MaterialIcons name="search" size={24} color="black" />
-				</CustomPressable>
+			<FilterModal
+				isVisible={isFilterModalOpen} //
+				onClose={toggleFilterModal}
+				onFilter={onFilter}
+				isFiltered={isFiltered}
+			/>
 
-				<CustomModal isVisible={isModalOpen} styleVariant="Favorite" onClose={toggleModal}>
-					<Text style={styles.modalText}>Close modal</Text>
-				</CustomModal>
-
-				<CustomModal isVisible={isFilterModalOpen} styleVariant="Filter" onClose={toggleFilterModal}>
-					<BouncyCheckbox text="Filter" onPress={onFilter} isChecked={isFiltered ? true : false} />
-				</CustomModal>
-			</View>
-			<View style={styles.FilterContainer}>
-				<CustomPressable onPress={toggleFilterModal}>
-					<Text>Filter</Text>
-				</CustomPressable>
-			</View>
+			<ThemeModal
+				isVisible={isThemeModalOpen} //
+				onClose={toggleThemeModal}
+				isAutoThemeEnabled={isAutoThemeEnabled}
+				toggleAutoThemeSwitch={toggleAutoThemeSwitch}
+				isDarkTheme={isDarkTheme}
+				toggleDarkTheme={toggleDarkTheme}
+				backgroundColor={backgroundColor}
+				textColor={textColor}
+			/>
 		</View>
 	);
 };

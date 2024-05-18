@@ -1,8 +1,8 @@
-import { Modal, View, Text, TouchableWithoutFeedback, Pressable } from "react-native";
+import { Modal, View, TouchableWithoutFeedback, Pressable } from "react-native";
 
 import { favoriteModal, filterModal } from "./style";
 
-export const CustomModal = ({ isVisible, onClose, children, styleVariant }) => {
+export const CustomModal = ({ isVisible, onClose, children, styleVariant, closeOnTextPress, modalStyle }) => {
 	const handleOutsideClick = () => {
 		onClose();
 	};
@@ -12,14 +12,12 @@ export const CustomModal = ({ isVisible, onClose, children, styleVariant }) => {
 	return (
 		<Modal animationType="fade" transparent={true} visible={isVisible} onRequestClose={onClose}>
 			<TouchableWithoutFeedback onPress={handleOutsideClick}>
-				<View style={styles.modalOverlay}>
-					<TouchableWithoutFeedback>
-						<View style={styles.modalContent}>
-							<Pressable title="Close" onPress={onClose}>
-								{children}
-							</Pressable>
-						</View>
-					</TouchableWithoutFeedback>
+				<View style={[styles.modalOverlay]}>
+					<View style={[styles.modalContent, modalStyle]}>
+						<Pressable title="Close" onPress={closeOnTextPress ? onClose : null}>
+							{children}
+						</Pressable>
+					</View>
 				</View>
 			</TouchableWithoutFeedback>
 		</Modal>
